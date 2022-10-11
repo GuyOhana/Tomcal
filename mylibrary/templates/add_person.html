@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+		<title> הספריה</title>	
+		{% load static %}
+		<link rel = "stylesheet" href = {% static 'CSS\mystyle.css' %} >
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	
+    <body>
+        <hr>
+        <h1 class = "title">הוסף משתמש<h1>
+        <hr>
+        <h1 class = "layout">
+            <h1 class = "vline1"><h1>
+            <h1 class = "vline2"><h1>
+            <h1 class = "bottomline"><h1>
+                
+                <form action="{% url 'add_person' %}" method="POST">
+                    {% csrf_token %}
+                    <input class="person_id" type="text" name="person_id" placeholder="תעודת זהות">
+                    <br>
+                    <input class="first_name" type="text" name="first_name" placeholder="שם פרטי">
+                    <br>
+                    <input class="last_name" type="text" name="last_name" placeholder="שם משפחה">
+                    <br>
+                    <input type="submit" value="שלח">
+                </form>
+  
+        <h1>
+    </body>
+
+</html>

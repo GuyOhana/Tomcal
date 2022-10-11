@@ -1,0 +1,48 @@
+.title{
+    direction: rtl;
+    font-size: 40px;
+    font-family: Arial, Times, serifs;
+}
+.vline1{
+    border-left: 1px solid black;
+    height: 700px;
+    position: absolute;
+    left: 7px;
+    margin-top: 9px;
+    top: 0;
+ }
+.vline2{
+    border-right: 1px solid black;
+    height: 700px;
+    position: absolute;
+    right: 7px;
+    margin-top: 9px;
+    top: 0;
+ }
+.vline3{
+    border-right: 1px solid black;
+    height: 598px;
+    position: absolute;
+    right: 250px;
+    margin-top: 110px;
+    top: 0;
+ }
+.vline4{
+    border-right: 1px solid black;
+    height: 598px;
+    position: absolute;
+    right: 925px;
+    margin-top: 110px;
+    top: 0;
+ }
+.bottomline{
+    border-bottom: 1px solid black;
+    width: 1522px;
+    height: 47px;
+    position: absolute;
+    right: 7px;
+    margin-top:527px;
+}
+#container1{
+    direction: rtl;
+}                  
