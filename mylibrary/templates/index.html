@@ -9,8 +9,7 @@
         <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-	
-    <body>
+        <body>
         <hr>
         <h1 class = "title">הספריה<h1>
         <hr>
@@ -35,6 +34,7 @@
                 <h2>{{ person.first_name}} {{person.last_name}}</h2>
                 <h4>{{person.person_id}}</h4>
                 <a href="/delete_person/{{ person.person_id }}"><button class="delete_button" >מחק</button></a>
+                <a href="/update_person/{{person.person_id}}"><button class="update_button" >ערוך</button></a>
             </div>
             {% endfor %}
             
@@ -49,7 +49,7 @@
                     <h4>עותקים: {{ book.num_copies }},
                         סופר: {{book.author}}
                     </h4>
-                    <a href="/delete/{{ book.id }}"><button class="delete_button" >מחק</button></a>
+                    <a href="/delete_book/{{ book.id }}"><button class="delete_button" >מחק</button></a>
                 </div>
                 {% endfor %}        
         </div>

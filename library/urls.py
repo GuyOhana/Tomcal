@@ -20,6 +20,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name = "index" ),
     path('add_person',views.add_person, name = "add_person" ),
-    path('delete/<int:book_id>', views.delete, name="delete"),
+    path('delete_book/<int:book_id>', views.delete_book, name="delete_book"),
     path('delete_person/<int:person_id>', views.delete_person, name="delete_person"),
+    path('update_person/<int:person_id>',views.update_person, name = "update_person" ),
+    path('update_person/updaterecord/<int:person_id>', views.updaterecord, name='updaterecord'),
+
 ]

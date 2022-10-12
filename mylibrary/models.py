@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 
 # Create your models here.
@@ -18,5 +19,6 @@ class Person(models.Model):
 class Lend(models.Model):
     person=models.ForeignKey(Person,on_delete=models.CASCADE)
     book=models.ForeignKey(Book,on_delete=models.CASCADE)
+    is_currently_lending = models.BooleanField( default = True)
 
 

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+{%block title %}
+    <title> הספריה</title>	
+{%endblock%}
+{%block header %}
+    <h1 class = "title">הוסף משתמש<h1>
+{%endblock%}
+{%block body%}
+<form action= "updaterecord/{{person.person_id}}" method="POST">
+    {% csrf_token %}
+    <input class="person_id" type="text" name="person_id" placeholder="תעודת זהות" value="{{ person.person_id }}">
+    <br>
+    <input class="first_name" type="text" name="first_name" placeholder="שם פרטי" value="{{ person.first_name }}">
+    <br>
+    <input class="last_name" type="text" name="last_name" placeholder="שם משפחה"value="{{ person.last_name }}">
+    <br>
+    <input type="submit" value="שלח">
+</form>
+{%endblock%}
