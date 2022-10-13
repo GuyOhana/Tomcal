@@ -1,149 +1,166 @@
 
 .title{
-    direction: rtl;
-    font-size: 40px;
-    font-family: Arial, Times, serifs;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.4) ;
+  direction: rtl;
+  font-size: 40px;
+  font-family: Arial, Times, serifs;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.4) ;
 }
 .vline1{
-    border-left: 1px solid black;
-    height: 700px;
-    position: absolute;
-    left: 7px;
-    margin-top: 9px;
-    top: 0;
- }
+  border-left: 1px solid black;
+  height: 700px;
+  position: absolute;
+  left: 7px;
+  margin-top: 9px;
+  top: 0;
+}
 .vline2{
-    border-right: 1px solid black;
-    height: 700px;
-    position: absolute;
-    right: 7px;
-    margin-top: 9px;
-    top: 0;
- }
+  border-right: 1px solid black;
+  height: 700px;
+  position: absolute;
+  right: 7px;
+  margin-top: 9px;
+  top: 0;
+}
 .vline3{
-    border-right: 1px solid black;
-    height: 598px;
-    position: absolute;
-    right: 250px;
-    margin-top: 110px;
-    top: 0;
- }
+  border-right: 1px solid black;
+  height: 598px;
+  position: absolute;
+  right: 250px;
+  margin-top: 110px;
+  top: 0;
+}
 .vline4{
-    border-right: 1px solid black;
-    height: 598px;
-    position: absolute;
-    right: 925px;
-    margin-top: 110px;
-    top: 0;
- }
+  border-right: 1px solid black;
+  height: 598px;
+  position: absolute;
+  right: 925px;
+  margin-top: 110px;
+  top: 0;
+}
 .bottomline{
-    border-bottom: 1px solid black;
-    width: 1522px;
-    height: 47px;
-    position: absolute;
-    right: 7px;
-    margin-top:527px;
+  border-bottom: 1px solid black;
+  width: 1522px;
+  height: 47px;
+  position: absolute;
+  right: 7px;
+  margin-top:527px;
 }
 #container1 {
-    direction: rtl;
-    position: absolute;
-    right: 3px;
-    margin-top:-27px;
+  direction: rtl;
+  position: absolute;
+  right: 3px;
+  margin-top:-27px;
 }
 .button {
-    
-    display: inline-block;
-    border: 1px solid black;
-    background-color: #ffffff;
-    color: #000000;
-    text-align: right;
-    font-size: 14px;
-    padding: 25px;
-    width: 242px;
-    transition: all 0.1s;
-    cursor: pointer;
-    margin: 5px;
-    position:absolute;
-  }
+  
+  display: inline-block;
+  border: 1px solid black;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: right;
+  font-size: 14px;
+  padding: 25px;
+  width: 242px;
+  transition: all 0.1s;
+  cursor: pointer;
+  margin: 5px;
+  position:absolute;
+}
 
 
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.3s;
-  }
-  
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .button:hover span {
-    padding-right: 25px;
-  }
-  
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
 #button2{
-    top: 68px;
+  top: 68px;
 }
 #container2{
-    display: none;
-    direction: rtl;
-    position: absolute;
-    right: 255px;
-    top:120px;
-    font-size: 35px;
-    font-family: Arial, Times, serifs;
-    font-weight: normal;
+  display: none;
+  direction: rtl;
+  position: absolute;
+  right: 255px;
+  top:120px;
+  font-size: 35px;
+  font-family: Arial, Times, serifs;
+  font-weight: normal;
 }
 #container3{
-    display: none;
-    direction: rtl;
-    position: absolute;
-    right: 255px;
-    top:120px;
-    font-size: 35px;
-    font-family: Arial, Times, serifs;
-    font-weight: normal;
+  display: none;
+  direction: rtl;
+  position: absolute;
+  right: 255px;
+  top:120px;
+  font-size: 35px;
+  font-family: Arial, Times, serifs;
+  font-weight: normal;
 }
 
-.buttonbook{
+.person_button{
   margin: auto 5px;
   border: 1px solid black;
   text-align: right;
   font-size: 14px;
-  padding: 25px;
-  width: 600px;
-  height: 130px ;
+  padding-bottom: 25px;
+  width: 650px;
+  height: 60px ;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
-.myimage{
-  margin: auto 5px;
-  float: left;
-  width: 100px;
-  height: 110px;
 
+.book_button{
+  margin: auto 10px;
+  border: 1px solid black;
+  text-align: right;
+  font-size: 14px;
+  padding-bottom: 0px;
+  width: 652px;
+  height: 100px ;
+  margin-bottom: 10px;
+  background-color: white;
+  display:block;
 }
+
+.myimage{
+  margin-top:  4px;
+  float: left;
+  width: 80px;
+  height: 88px;
+}
+
 .delete_button{
+  margin: auto 5px;
   background-color: #f44336; /* Red */
   border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  float: left;
 }
 
 .update_button{
@@ -153,12 +170,52 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  float: left;
 }
 
+.add_person_btn {
+  background-color: #003459;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  position: absolute;
+  right: 70%;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  width: 190px;
+}
 
-
-
+#book_style_id{
+  direction: rtl;
+  position: absolute;
+  right: 925px;
+  top: 80px;
+  font-size: 35px;
+  font-family: Arial, Times, serifs;
+  font-weight: normal;
+}

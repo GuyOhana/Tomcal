@@ -9,6 +9,7 @@
         <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
         <body>
         <hr>
         <h1 class = "title">הספריה<h1>
@@ -28,33 +29,47 @@
 
         <div id="container2">
             רשימת המשתמשים
-            <a class = "add_person_btn" href="/add_person"><button class="add_person" >הוסף משתמש</button></a>
+            <a href="/add_person"><button class="add_person_btn" >הוסף משתמש</button></a>
+            <br>
             {% for person in Persons %}
-            <div class="buttonbook">
-                <h2>{{ person.first_name}} {{person.last_name}}</h2>
-                <h4>{{person.person_id}}</h4>
-                <a href="/delete_person/{{ person.person_id }}"><button class="delete_button" >מחק</button></a>
-                <a href="/update_person/{{person.person_id}}"><button class="update_button" >ערוך</button></a>
+            <div class="person_button">
+                <h2 class ="text_in_person">{{ person.first_name}} {{person.last_name}}                
+                    <a href="/delete_person/{{ person.person_id }}"><button class="delete_button" >מחק</button></a>
+                    <a href="/update_person/{{person.person_id}}"><button class="update_button" >ערוך</button></a>
+                </h2>
+                <h4 class ="" >{{person.person_id}}</h4>
             </div>
             {% endfor %}
-            
         </div>
 
         <div id="container3">
             רשימת הספרים
                 {% for book in Books %}
-                <div class="buttonbook">
+                <button data-page="container_book{{book.id}}" class="book_button" id = "container_book{{book.id}}">
                     <img src={{book.image_url}} class = "myimage">
                     <h2>{{ book.title }}</h2>
                     <h4>עותקים: {{ book.num_copies }},
                         סופר: {{book.author}}
                     </h4>
-                    <a href="/delete_book/{{ book.id }}"><button class="delete_button" >מחק</button></a>
-                </div>
+                </button>
                 {% endfor %}        
         </div>
-		<script src="{% static 'JS\singlepage.js' %}" ></script>
 
+        <div class = "book_containers">
+            {%for book in Books%}
+            <br>
+            <div class = "container_book{{book.id}}">
+                <h2 style = "direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 35px;font-family: Arial, Times, serifs;font-weight: normal;"
+                >הקוראים של הספר:
+                <br>
+                {{book.title}}</h2>
+            </div>
+            {%endfor%}
+        </div>
+
+
+		<script src="{% static 'JS\singlepage.js' %}" ></script>
+		<script src="{% static 'JS\book_button.js' %}" ></script>
 
     </body>
 
