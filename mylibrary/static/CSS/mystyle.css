@@ -97,21 +97,20 @@
   top: 68px;
 }
 #container2{
-  display: none;
   direction: rtl;
   position: absolute;
   right: 255px;
-  top:120px;
+  top: 125px;
   font-size: 35px;
   font-family: Arial, Times, serifs;
   font-weight: normal;
+  margin-top: 5px;
 }
 #container3{
-  display: none;
   direction: rtl;
   position: absolute;
   right: 255px;
-  top:120px;
+  top: 95px;
   font-size: 35px;
   font-family: Arial, Times, serifs;
   font-weight: normal;
@@ -210,12 +209,35 @@
   width: 190px;
 }
 
-#book_style_id{
-  direction: rtl;
-  position: absolute;
-  right: 925px;
-  top: 80px;
-  font-size: 35px;
+#individual_person_container{
+  margin: auto 10px;
+  border: 1px solid black;
+  text-align: right;
+  padding-bottom: 0px;
+  width: 575px;
+  height: 97px ;
+  margin-bottom: 10px;
+  background-color: white;
+  position: relative;
+  top: 71px;
+  font-size: 25px;
   font-family: Arial, Times, serifs;
   font-weight: normal;
+  
+}
+
+#stop_lending_to_person{
+  margin: auto 5px;
+  background-color: #f44336; /* Red */
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  top: -4px;
+  border-radius: 3px;
+  float: left;
 }

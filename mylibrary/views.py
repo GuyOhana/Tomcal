@@ -3,14 +3,15 @@ import string
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
 from django.template import loader
-from mylibrary.models import Book, Person
+from mylibrary.models import Book, Lend, Person
 from django.http import HttpResponse, HttpResponseRedirect
 
 
 def index(request):
     books = Book.objects.all()
     persons = Person.objects.all()
-    return render(request,"index.html",{"Books": books, "Persons": persons})
+    lends = Lend.objects.all()
+    return render(request,"index.html",{"Books": books, "Persons": persons,"Lends": lends})
 
 # Create your views here.
 
@@ -55,5 +56,24 @@ def updaterecord(request, person_id):
     person.save()
     return redirect("index")
 
+def stop_lending_to_person(request, lend_id):
+    lend = Lend.objects.get(id= lend_id)
+    lend.is_currently_lending = False
+    lend.save()
+    # updates the lending count
+    book = Book.objects.get(id= lend.book.id)
+    book.count_lending =book.count_lending - 1
+    book.save()
+    return redirect("index")
+
+def lend_book_choose_person(request, book_id):
+    if request.method == "POST":
+        # Take in the data the user submitted and save it 
+        book = request.POST['book']
+        person = request.POST['person']
+        lend = lend( book = book, person = person, is_currently_lending = True)
+        lend.save()
+        return redirect("index")
+    return render(request,"lend_book_choose_person.html")
 
 

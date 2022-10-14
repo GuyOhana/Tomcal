@@ -43,7 +43,7 @@
         </div>
 
         <div id="container3">
-            רשימת הספרים
+            <p id = "container3_text">רשימת הספרים</p>
                 {% for book in Books %}
                 <button data-page="container_book{{book.id}}" class="book_button" id = "container_book{{book.id}}">
                     <img src={{book.image_url}} class = "myimage">
@@ -57,13 +57,35 @@
 
         <div class = "book_containers">
             {%for book in Books%}
-            <br>
-            <div class = "container_book{{book.id}}">
-                <h2 style = "direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 35px;font-family: Arial, Times, serifs;font-weight: normal;"
-                >הקוראים של הספר:
-                <br>
-                {{book.title}}</h2>
-            </div>
+                <div class = "container_book{{book.id}}">
+                    <h2 style = "direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;font-family: Arial, Times, serifs;font-weight: normal;"
+                        >הקוראים של הספר:
+                        <br>
+                        <a href = "/lend_book_choose_person/{{ book.id }}">
+                            <button id = "lend_book_choose_person">
+                                השאל ספר
+                            </button>
+                        </a>
+                        {{book.title}}
+                    </h2>
+                    {%for lend in Lends%}
+                        
+                        {% if lend.book.id ==  book.id and lend.is_currently_lending%}
+                            <h4 id = "individual_person_container">
+                                {{ lend.person.first_name}} {{lend.person.last_name}}
+                                <br>
+                                <a href = "/stop_lending_to_person/{{ lend.id }}">
+                                    <button id = "stop_lending_to_person">
+                                        סיים השאלה
+                                    </button>
+                                </a>
+                                <br>
+                                {{lend.person.person_id}}
+                            </h4>
+                           
+                        {% endif %}
+                    {%endfor%}
+                </div>
             {%endfor%}
         </div>
 
