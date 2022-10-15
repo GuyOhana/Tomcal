@@ -1,5 +1,5 @@
 
-       // Shows one page and hides the other two
+      // Shows one page and hides the other two
        function showPage(page) {
         // Hide all of the divs:
         document.querySelector(`#container2`).style.display = 'none';
@@ -8,8 +8,21 @@
         document.querySelectorAll('div.book_containers div').forEach(div => {
                 div.style.display = 'none';
         });
+
+        // Hide persons' third bar
+        document.querySelectorAll('div.person_containers div').forEach(div => {
+                div.style.display = 'none';
+        });
+
         //return book buttons styles to noraml
         document.querySelectorAll('div#container3 button').forEach(button => {
+            {
+                button.style.color = 'black';
+                button.style.backgroundColor = 'white';
+            }
+            })
+        //return person buttons styles to noraml
+        document.querySelectorAll('div.classsome button').forEach(button => {
             {
                 button.style.color = 'black';
                 button.style.backgroundColor = 'white';

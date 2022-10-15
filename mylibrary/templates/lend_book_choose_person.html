@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{%block title %}
+    <title> הספריה</title>	
+{%endblock%}
+{%block header %}
+    <h1 class = "title">השאל ספר<h1>
+{%endblock%}
+{%block body%}
+<form method="POST">
+    {% csrf_token %}
+    <label for="combo_box_people">תבחר משתמש שישאיל ספר:</label>
+    <select id="combo_box_people" name="person_id">
+      {%for person in Persons%}
+        <option value="{{person.person_id}}">{{person.first_name}} {{person.last_name}}</option>
+    {%endfor%}
+    </select>    
+    <input type="submit" value="שלח">
+
+</form>
+{%endblock%}

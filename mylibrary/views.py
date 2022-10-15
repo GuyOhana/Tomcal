@@ -1,5 +1,7 @@
 import pkgutil
+from ssl import AlertDescription
 import string
+from urllib import request
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
 from django.template import loader
@@ -67,13 +69,16 @@ def stop_lending_to_person(request, lend_id):
     return redirect("index")
 
 def lend_book_choose_person(request, book_id):
+    book = Book.objects.get(pk=book_id)
+    persons = Person.objects.all()
     if request.method == "POST":
         # Take in the data the user submitted and save it 
-        book = request.POST['book']
-        person = request.POST['person']
-        lend = lend( book = book, person = person, is_currently_lending = True)
+        person_id = request.POST['person_id']
+        person = Person.objects.get(pk=person_id)
+        book.count_lending = book.count_lending+1
+        book.save()
+        lend = Lend( book = book, person = person, is_currently_lending = True)
         lend.save()
         return redirect("index")
-    return render(request,"lend_book_choose_person.html")
-
+    return render(request,"lend_book_choose_person.html",{"Persons": persons,"book_id": book_id})
 

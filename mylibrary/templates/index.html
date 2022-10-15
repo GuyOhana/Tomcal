@@ -32,15 +32,33 @@
             <a href="/add_person"><button class="add_person_btn" >הוסף משתמש</button></a>
             <br>
             {% for person in Persons %}
-            <div class="person_button">
-                <h2 class ="text_in_person">{{ person.first_name}} {{person.last_name}}                
-                    <a href="/delete_person/{{ person.person_id }}"><button class="delete_button" >מחק</button></a>
-                    <a href="/update_person/{{person.person_id}}"><button class="update_button" >ערוך</button></a>
-                </h2>
-                <h4 class ="" >{{person.person_id}}</h4>
-            </div>
+                <div class="">
+                    <h2 id = "person_buttons">
+                        <a href="/delete_person/{{ person.person_id }}"><button class="delete_button" >מחק</button></a>
+                        <a href="/update_person/{{person.person_id}}"><button class="update_button" >ערוך</button></a>
+                    </h2>
+                    <div class = "classsome">
+                    <button data-page="container_person{{person.person_id}}" id ="button_person">{{ person.first_name}} {{person.last_name}}
+                        <br>
+                        {{person.person_id}}
+                    </button>
+                    </div>
+                </div>
             {% endfor %}
         </div>
+
+        <div class = "person_containers">
+            {%for person in Persons%}
+                <div class = "container_person{{person.person_id}}">
+                    <h2 style = "direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;font-family: Arial, Times, serifs;font-weight: normal;"
+                        >רשימת הספרים של {{person.first_name}} {{person.last_name}}
+                        <br>
+                    </h2>
+                </div>
+            {%endfor%}
+        </div>
+
+
 
         <div id="container3">
             <p id = "container3_text">רשימת הספרים</p>
@@ -61,11 +79,17 @@
                     <h2 style = "direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;font-family: Arial, Times, serifs;font-weight: normal;"
                         >הקוראים של הספר:
                         <br>
-                        <a href = "/lend_book_choose_person/{{ book.id }}">
-                            <button id = "lend_book_choose_person">
+                        {% if book.num_copies > book.count_lending%}
+                            <a href = "/lend_book_choose_person/{{ book.id }}">
+                                <button id = "lend_book_choose_person">
+                                    השאל ספר
+                                </button>
+                            </a>
+                        {% else %}
+                            <button onclick = "alertMessage()" id = "lend_book_choose_person" >
                                 השאל ספר
                             </button>
-                        </a>
+                        {%endif%}
                         {{book.title}}
                     </h2>
                     {%for lend in Lends%}
@@ -89,7 +113,8 @@
             {%endfor%}
         </div>
 
-
+		<script src="{% static 'JS\person_button.js' %}" ></script>
+		<script src="{% static 'JS\alertMessage.js' %}" ></script>
 		<script src="{% static 'JS\singlepage.js' %}" ></script>
 		<script src="{% static 'JS\book_button.js' %}" ></script>
 
