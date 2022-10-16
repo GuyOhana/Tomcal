@@ -1,3 +1,4 @@
+from ast import And
 import pkgutil
 from ssl import AlertDescription
 import string
@@ -24,6 +25,12 @@ def delete_book(request, book_id):
 
 def delete_person(request, person_id):
     person = Person.objects.get(person_id= person_id)
+    lend = Lend.objects.all()
+    for item in lend:
+        if(item.person.person_id == person_id and item.is_currently_lending):
+            book = Book.objects.get(pk = item.book.id)
+            book.count_lending = book.count_lending -1
+            book.save()
     person.delete()
     return redirect("index")
 

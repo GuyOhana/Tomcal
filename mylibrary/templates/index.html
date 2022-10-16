@@ -34,7 +34,7 @@
             {% for person in Persons %}
                 <div class="">
                     <h2 id = "person_buttons">
-                        <a href="/delete_person/{{ person.person_id }}"><button class="delete_button" >מחק</button></a>
+                        <button class="delete_button" onclick = "confirmDelete({{person.person_id}})">מחק</button>
                         <a href="/update_person/{{person.person_id}}"><button class="update_button" >ערוך</button></a>
                     </h2>
                     <div class = "classsome">
@@ -86,7 +86,7 @@
                                 </button>
                             </a>
                         {% else %}
-                            <button onclick = "alertMessage()" id = "lend_book_choose_person" >
+                            <button onclick = "all_book_lent()" id = "lend_book_choose_person" >
                                 השאל ספר
                             </button>
                         {%endif%}
@@ -113,7 +113,7 @@
             {%endfor%}
         </div>
 
-		<script src="{% static 'JS\person_button.js' %}" ></script>
+        <script src="{% static 'JS\person_button.js' %}" ></script>
 		<script src="{% static 'JS\alertMessage.js' %}" ></script>
 		<script src="{% static 'JS\singlepage.js' %}" ></script>
 		<script src="{% static 'JS\book_button.js' %}" ></script>
