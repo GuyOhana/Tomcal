@@ -26,5 +26,4 @@ urlpatterns = [
     path('update_person/updaterecord/<int:person_id>', views.updaterecord, name='updaterecord'),
     path('stop_lending_to_person/<int:lend_id>', views.stop_lending_to_person, name='stop_lending_to_person'),
     path('lend_book_choose_person/<int:book_id>', views.lend_book_choose_person, name='lend_book_choose_person'),
-
 ]

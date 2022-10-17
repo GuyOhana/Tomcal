@@ -54,11 +54,29 @@
                         >רשימת הספרים של {{person.first_name}} {{person.last_name}}
                         <br>
                     </h2>
+                    {%for lend in Lends%}
+                        {% if lend.person.person_id ==  person.person_id%}
+                            <h4 id = "individual_book_container">
+                                {{ lend.book.title }}
+                                <br>
+                                עותקים: {{ lend.book.num_copies }},
+                                    סופר: {{lend.book.author}}
+                                {%if lend.is_currently_lending%}
+                                    <a href = "/stop_lending_to_person/{{ lend.id }}">
+                                        <button id = "stop_lending_to_person">
+                                            סיים השאלה
+                                        </button>
+                                    </a>
+                                    <br>
+                                {%endif%}
+                            </h4>
+                           
+                        {% endif %}
+                    {%endfor%}
+
                 </div>
             {%endfor%}
         </div>
-
-
 
         <div id="container3">
             <p id = "container3_text">רשימת הספרים</p>

@@ -68,6 +68,11 @@ def updaterecord(request, person_id):
 def stop_lending_to_person(request, lend_id):
     lend = Lend.objects.get(id= lend_id)
     lend.is_currently_lending = False
+    lends = Lend.objects.all()
+    # deletes duplicate entries
+    for item in lends:
+        if(item.is_currently_lending == False and item.book.id == lend.book.id and lend.person.person_id == item.person.person_id):
+            item.delete()
     lend.save()
     # updates the lending count
     book = Book.objects.get(id= lend.book.id)
@@ -78,6 +83,7 @@ def stop_lending_to_person(request, lend_id):
 def lend_book_choose_person(request, book_id):
     book = Book.objects.get(pk=book_id)
     persons = Person.objects.all()
+    lends = Lend.objects.all()    
     if request.method == "POST":
         # Take in the data the user submitted and save it 
         person_id = request.POST['person_id']
@@ -85,7 +91,10 @@ def lend_book_choose_person(request, book_id):
         book.count_lending = book.count_lending+1
         book.save()
         lend = Lend( book = book, person = person, is_currently_lending = True)
+        # Delete dupicate entries
+        for item in lends:
+            if(item.is_currently_lending == False and item.book.id == lend.book.id and lend.person.person_id == item.person.person_id):
+                item.delete()
         lend.save()
         return redirect("index")
     return render(request,"lend_book_choose_person.html",{"Persons": persons,"book_id": book_id})
-
