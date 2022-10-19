@@ -54,6 +54,12 @@
                         >רשימת הספרים של {{person.first_name}} {{person.last_name}}
                         <br>
                     </h2>
+                    <a href = "/lend_person_choose_book/{{ person.person_id }}">
+                        <button id = "lend_person_choose_book">
+                            השאל ספר
+                        </button>
+                    </a>
+
                     {%for lend in Lends%}
                         {% if lend.person.person_id ==  person.person_id%}
                             <h4 id = "individual_book_container">

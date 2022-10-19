@@ -41,6 +41,9 @@ def add_person(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         person = Person( person_id = person_id, first_name = first_name, last_name = last_name)
+        if(int(person.person_id)>int(999_999_999) or int(person.person_id)<100_000_000):
+
+            return render(request,"add_person.html")
         person.save()
         return redirect("index")
     return render(request,"add_person.html")
@@ -98,3 +101,22 @@ def lend_book_choose_person(request, book_id):
         lend.save()
         return redirect("index")
     return render(request,"lend_book_choose_person.html",{"Persons": persons,"book_id": book_id})
+
+def lend_person_choose_book(request, person_id):
+    person = Person.objects.get(pk=person_id)
+    Books = Book.objects.all()
+    lends = Lend.objects.all()    
+    if request.method == "POST":
+        # Take in the data the user submitted and save it 
+        book_id = request.POST['book_id']
+        book = Book.objects.get(pk=book_id)
+        book.count_lending = book.count_lending+1
+        book.save()
+        lend = Lend( book = book, person = person, is_currently_lending = True)
+        # Delete dupicate entries
+        for item in lends:
+            if(item.is_currently_lending == False and item.book.id == lend.book.id and lend.person.person_id == item.person.person_id):
+                item.delete()
+        lend.save()
+        return redirect("index")
+    return render(request,"lend_person_choose_book.html",{"Books": Books,"person_id": person_id})
