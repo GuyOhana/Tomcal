@@ -17,12 +17,12 @@
             document.querySelectorAll('div#container3 button').forEach(button => {
                 if(button == pressed_button)
                 {
-                    pressed_button.style.color = 'white';
-                    pressed_button.style.backgroundColor = '#003459';        
+                    pressed_button.style.color = '#20232a';
+                    pressed_button.style.backgroundColor = '#61dafb';        
                 }
                 else{
-                    button.style.color = 'black';
-                    button.style.backgroundColor = 'white';
+                    button.style.color = 'white';
+                    button.style.backgroundColor = '#282c34';
         
                 }
                 })

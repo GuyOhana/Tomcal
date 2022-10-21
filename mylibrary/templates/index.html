@@ -10,7 +10,7 @@
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     </head>
-        <body>
+        <body bgcolor = "#20232a">
         <hr>
         <h1 class = "title">הספריה<h1>
         <hr>
@@ -27,7 +27,7 @@
             <button data-page="container3" class= "button" id = "button2"style="vertical-align:middle"><span>ניהול ספרים </span></button>
         </div>  
 
-        <div id="container2">
+        <div id="container2" style= "color: white;">
             רשימת המשתמשים
             <a href="/add_person"><button class="add_person_btn" ><span> הוסף משתמש</span></button></a>
             <br>
@@ -51,18 +51,17 @@
         <div class = "person_containers">
             {%for person in Persons%}
                 <div class = "container_person{{person.person_id}}">
-                    <h2 style = "direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;font-family: Arial, Times, serifs;font-weight: normal;"
+                    <h2 style = "color: white; direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;  font-family: serif, Arial, Times;font-weight: normal;"
                         >רשימת הספרים של 
                         <br>
                         {{person.first_name}} {{person.last_name}}
                         <br>
                     </h2>
+                    
                     <a href = "/lend_person_choose_book/{{ person.person_id }}">
                         <button id = "lend_person_choose_book"><span>
-
                             השאל ספר
                         </span>
-
                         </button>
                     </a>
 
@@ -108,7 +107,7 @@
         <div class = "book_containers">
             {%for book in Books%}
                 <div class = "container_book{{book.id}}">
-                    <h2 style = "direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;font-family: Arial, Times, serifs;font-weight: normal;"
+                    <h2 style = "color:white; direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;  font-family: serif, Arial, Times;font-weight: normal;"
                         >הקוראים של הספר:
                         <br>
                         {% if book.num_copies > book.count_lending%}

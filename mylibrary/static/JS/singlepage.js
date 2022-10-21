@@ -17,15 +17,15 @@
         //return book buttons styles to noraml
         document.querySelectorAll('div#container3 button').forEach(button => {
             {
-                button.style.color = 'black';
-                button.style.backgroundColor = 'white';
+                button.style.color = 'white';
+                button.style.backgroundColor = '#282c34';
             }
             })
         //return person buttons styles to noraml
         document.querySelectorAll('div.classsome button').forEach(button => {
             {
-                button.style.color = 'black';
-                button.style.backgroundColor = 'white';
+                button.style.color = 'white';
+                button.style.backgroundColor = '#282c34';
             }
             })
         
@@ -36,17 +36,17 @@
         //switches buttons style
         if(`#${page}` == '#container2')
         {
-            document.querySelector(`#button1`).style.color = ' white';
-            document.querySelector(`#button1`).style.backgroundColor = '#003459';
-            document.querySelector(`#button2`).style.color = ' black';
-            document.querySelector(`#button2`).style.backgroundColor = 'white';
+            document.querySelector(`#button1`).style.color = ' black';
+            document.querySelector(`#button1`).style.backgroundColor = '#61dafb';
+            document.querySelector(`#button2`).style.color = ' white';
+            document.querySelector(`#button2`).style.backgroundColor = '#282c34';
         }
         if(`#${page}` == '#container3')
         {
-            document.querySelector(`#button2`).style.color = ' white';
-            document.querySelector(`#button2`).style.backgroundColor = '#003459';
-            document.querySelector(`#button1`).style.color = ' black';
-            document.querySelector(`#button1`).style.backgroundColor = 'white';
+            document.querySelector(`#button2`).style.color = ' black';
+            document.querySelector(`#button2`).style.backgroundColor = '#61dafb';
+            document.querySelector(`#button1`).style.color = ' white';
+            document.querySelector(`#button1`).style.backgroundColor = '#282c34';
         }
         }
 

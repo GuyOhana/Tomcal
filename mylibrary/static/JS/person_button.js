@@ -15,12 +15,12 @@
             document.querySelectorAll('div.classsome button').forEach(button => {
                 if(button == pressed_button)
                 {
-                    button.style.color = 'white';
-                    button.style.backgroundColor = '#003459';        
+                    button.style.color = 'black';
+                    button.style.backgroundColor = '#61dafb';        
                 }
                 else{
-                    button.style.color = 'black';
-                    button.style.backgroundColor = 'white';        
+                    button.style.color = 'white';
+                    button.style.backgroundColor = '#282c34';        
                 }
                 })
         }
