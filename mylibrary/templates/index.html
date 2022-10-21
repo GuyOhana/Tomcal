@@ -29,18 +29,19 @@
 
         <div id="container2">
             רשימת המשתמשים
-            <a href="/add_person"><button class="add_person_btn" >הוסף משתמש</button></a>
+            <a href="/add_person"><button class="add_person_btn" ><span> הוסף משתמש</span></button></a>
             <br>
             {% for person in Persons %}
                 <div class="">
                     <h2 id = "person_buttons">
-                        <button class="delete_button" onclick = "confirmDelete({{person.person_id}})">מחק</button>
-                        <a href="/update_person/{{person.person_id}}"><button class="update_button" >ערוך</button></a>
+                        <button class="delete_button" onclick = "confirmDelete({{person.person_id}})"><span>מחק</span></button>
+                        <a href="/update_person/{{person.person_id}}"><button class="update_button" ><span>ערוך</span></button></a>
                     </h2>
                     <div class = "classsome">
-                    <button data-page="container_person{{person.person_id}}" id ="button_person">{{ person.first_name}} {{person.last_name}}
+                    <button data-page="container_person{{person.person_id}}" id ="button_person"><span>{{ person.first_name}} {{person.last_name}}
                         <br>
                         {{person.person_id}}
+                    </span>
                     </button>
                     </div>
                 </div>
@@ -51,12 +52,17 @@
             {%for person in Persons%}
                 <div class = "container_person{{person.person_id}}">
                     <h2 style = "direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;font-family: Arial, Times, serifs;font-weight: normal;"
-                        >רשימת הספרים של {{person.first_name}} {{person.last_name}}
+                        >רשימת הספרים של 
+                        <br>
+                        {{person.first_name}} {{person.last_name}}
                         <br>
                     </h2>
                     <a href = "/lend_person_choose_book/{{ person.person_id }}">
-                        <button id = "lend_person_choose_book">
+                        <button id = "lend_person_choose_book"><span>
+
                             השאל ספר
+                        </span>
+
                         </button>
                     </a>
 
@@ -69,8 +75,8 @@
                                     סופר: {{lend.book.author}}
                                 {%if lend.is_currently_lending%}
                                     <a href = "/stop_lending_to_person/{{ lend.id }}">
-                                        <button id = "stop_lending_to_person">
-                                            סיים השאלה
+                                        <button id = "stop_lending_to_person"><span>
+                                            סיים השאלה</span>
                                         </button>
                                     </a>
                                     <br>
@@ -87,12 +93,14 @@
         <div id="container3">
             <p id = "container3_text">רשימת הספרים</p>
                 {% for book in Books %}
-                <button data-page="container_book{{book.id}}" class="book_button" id = "container_book{{book.id}}">
+                <button data-page="container_book{{book.id}}" class="book_button" id = "container_book{{book.id}}"> 
                     <img src={{book.image_url}} class = "myimage">
+                    <span>
                     <h2>{{ book.title }}</h2>
                     <h4>עותקים: {{ book.num_copies }},
                         סופר: {{book.author}}
                     </h4>
+                </span>
                 </button>
                 {% endfor %}        
         </div>
@@ -105,13 +113,15 @@
                         <br>
                         {% if book.num_copies > book.count_lending%}
                             <a href = "/lend_book_choose_person/{{ book.id }}">
-                                <button id = "lend_book_choose_person">
+                                <button id = "lend_book_choose_person"><span>
                                     השאל ספר
+                                </span>
                                 </button>
                             </a>
                         {% else %}
-                            <button onclick = "all_book_lent()" id = "lend_book_choose_person" >
+                            <button onclick = "all_book_lent()" id = "lend_book_choose_person" ><span>
                                 השאל ספר
+                            </span>
                             </button>
                         {%endif%}
                         {{book.title}}

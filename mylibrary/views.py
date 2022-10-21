@@ -41,9 +41,6 @@ def add_person(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         person = Person( person_id = person_id, first_name = first_name, last_name = last_name)
-        if(int(person.person_id)>int(999_999_999) or int(person.person_id)<100_000_000):
-
-            return render(request,"add_person.html")
         person.save()
         return redirect("index")
     return render(request,"add_person.html")
