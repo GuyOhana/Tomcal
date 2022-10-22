@@ -3,19 +3,19 @@
     <title> הספריה</title>	
 {%endblock%}
 {%block header %}
-    <h1 class = "title2">השאל ספר<h1>
+    <h1 class = "title3">השאל ספר<h1>
 {%endblock%}
 {%block body%}
 <form method="POST">
     {% csrf_token %}
-    <label for="combo_box_people">תבחר משתמש שישאיל ספר:</label>
-    <select id="combo_box_people" name="person_id">
+    <select id="combo_box_people" name="person_id" class = "first_name">
       {%for person in Persons%}
         <option value="{{person.person_id}}">{{person.first_name}} {{person.last_name}}</option>
     {%endfor%}
     </select>    
     <br>
-    <input type="submit" value="שלח">
+    <input type="submit" value="שלח" class = "submit_button">
+    <input type="button" value="חזור" onclick="history.back(-1)" class = "return_button">
 
 </form>
 {%endblock%}

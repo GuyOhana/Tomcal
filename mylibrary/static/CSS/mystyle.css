@@ -190,7 +190,7 @@
 
 .delete_button{
   margin: auto 5px;
-  background-color: #d80e00; /* Red */
+  background-color: red; /* Red */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -205,52 +205,11 @@
   border-radius: 8px;
 }
 
-.delete_button span {
-  transition: all 0.3s;
-}
-.delete_button::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 45%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;
-  transition: all 0.3s;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  border-top-color: red;
-  border-bottom-color: red;
-  transform: scale(0.1, 1);
-}
-
-.delete_button span{
-  position: relative;
-  z-index: 2;
-}
-
-.delete_button:after{
-  position: absolute;
-  content: "";
-  top: 4px;
-  left: 2px;
-  width: 0;
-  height: 86.5%;
-  background: red;
-  transition: all .6s;
-  border-radius: 8px;
-}
-
 .delete_button:hover{
-  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 5px 10px grey;
 }
 
-.delete_button:hover:after{
-  width: 47.5%;
-}
 
 
 
@@ -267,6 +226,7 @@
   float: left;
   font-family: serif, Arial, Times;
   border-radius: 8px;
+  margin-right: auto 5px;
 
 }
 
@@ -767,3 +727,35 @@
   z-index: 1;
 }
 
+.return_button{
+  background-color: red;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: serif, Arial, Times;
+  font-weight: 400;
+  line-height: 1.15385;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  position: relative;
+  right: -20%;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 21px;
+  width: 190px;
+  top: -10%;
+  margin: -100px -2px;
+}
