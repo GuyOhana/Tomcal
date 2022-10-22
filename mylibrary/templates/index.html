@@ -12,7 +12,7 @@
     </head>
         <body bgcolor = "#20232a">
         <hr>
-        <h1 class = "title">הספריה<h1>
+        <h1 class = "title">&nbsp;הספריה <h1>
         <hr>
         <h1 class = "layout">
             <h1 class = "vline1"><h1>
@@ -28,7 +28,7 @@
         </div>  
 
         <div id="container2" style= "color: white;">
-            רשימת המשתמשים
+            &nbsp;            רשימת המשתמשים
             <a href="/add_person"><button class="add_person_btn" ><span> הוסף משתמש</span></button></a>
             <br>
             {% for person in Persons %}
@@ -52,9 +52,9 @@
             {%for person in Persons%}
                 <div class = "container_person{{person.person_id}}">
                     <h2 style = "color: white; direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;  font-family: serif, Arial, Times;font-weight: normal;"
-                        >רשימת הספרים של 
+                        >&nbsp;רשימת הספרים של 
                         <br>
-                        {{person.first_name}} {{person.last_name}}
+                        &nbsp;{{person.first_name}} {{person.last_name}}
                         <br>
                     </h2>
                     
@@ -90,7 +90,7 @@
         </div>
 
         <div id="container3">
-            <p id = "container3_text">רשימת הספרים</p>
+            <p id = "container3_text">&nbsp;רשימת הספרים</p>
                 {% for book in Books %}
                 <button data-page="container_book{{book.id}}" class="book_button" id = "container_book{{book.id}}"> 
                     <img src={{book.image_url}} class = "myimage">
@@ -108,7 +108,7 @@
             {%for book in Books%}
                 <div class = "container_book{{book.id}}">
                     <h2 style = "color:white; direction: rtl;position: absolute;right: 925px;top: 90px;font-size: 30px;  font-family: serif, Arial, Times;font-weight: normal;"
-                        >הקוראים של הספר:
+                        >&nbsp;הקוראים של הספר:
                         <br>
                         {% if book.num_copies > book.count_lending%}
                             <a href = "/lend_book_choose_person/{{ book.id }}">
@@ -123,7 +123,7 @@
                             </span>
                             </button>
                         {%endif%}
-                        {{book.title}}
+                        &nbsp;{{book.title}}
                     </h2>
                     {%for lend in Lends%}
                         
@@ -132,7 +132,7 @@
                                 {{ lend.person.first_name}} {{lend.person.last_name}}
                                 <br>
                                 <a href = "/stop_lending_to_person/{{ lend.id }}">
-                                    <button id = "stop_lending_to_person">
+                                    <button id = "stop_lending_to_person2">
                                         סיים השאלה
                                     </button>
                                 </a>

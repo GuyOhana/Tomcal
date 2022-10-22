@@ -4,7 +4,7 @@
     <title> הספריה</title>	
 {%endblock%}
 {%block header %}
-    <h1 class = "title">הוסף משתמש<h1>
+    <h1 class = "title2">ערוך משתמש<h1>
 {%endblock%}
 {%block body%}
 <form action= "updaterecord/{{person.person_id}}" method="POST">
@@ -15,6 +15,6 @@
     <br>
     <input class="last_name" type="text" name="last_name" placeholder="שם משפחה"value="{{ person.last_name }}">
     <br>
-    <input type="submit" value="שלח">
+    <input type="submit" value="שלח" class = "submit_button">
 </form>
 {%endblock%}

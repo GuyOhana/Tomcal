@@ -3,20 +3,20 @@
     <title> הספריה</title>	
 {%endblock%}
 {%block header %}
-    <h1 class = "title">השאל ספר<h1>
+    <h1 class = "title3">השאל ספר<h1>
 {%endblock%}
 {%block body%}
 <form method="POST">
     {% csrf_token %}
-    <label for="combo_box_books">תבחר ספר להשאיל:</label>
-    <select id="combo_box_books" name="book_id">
+    <select id="combo_box_books" name="book_id" class = "first_name">
       {%for book in Books%}
         {%if book.num_copies > book.count_lending%}
         <option value="{{book.id}}">{{book.title}}</option>
         {%endif%}
         {%endfor%}
-    </select>    
-    <input type="submit" value="שלח">
+    </select>
+    <br>    
+    <input type="submit" value="שלח" class ="submit_button">
 
 </form>
 {%endblock%}

@@ -54,15 +54,24 @@ def update_person(request,person_id):
     return HttpResponse(template.render(context, request))
   
 def updaterecord(request, person_id):
-    person = Person.objects.get(pk=person_id)
-    person_id = request.POST['person_id']
     first_name = request.POST['first_name']
     last_name = request.POST['last_name']
-    person.delete()
-    person.first_name = first_name
-    person.last_name = last_name
-    person.person_id = person_id
-    person.save()
+    lends = Lend.objects.all()
+    person = Person.objects.get(person_id=person_id)
+    if( int(person_id) == int(request.POST['person_id'])):
+        person.first_name = first_name
+        person.last_name = last_name
+        person.save()
+    else:
+        #creating new person
+        person2 = Person(person_id = int(request.POST['person_id']), first_name = first_name, last_name = last_name)
+        person2.save()
+        #creating identical lends for person2 with person
+        for lend in lends:
+            if(int(lend.person.person_id) == int(person_id)):
+                lend2 = Lend(person = person2, book = lend.book, is_currently_lending =  lend.is_currently_lending)
+                lend2.save()
+        person.delete()
     return redirect("index")
 
 def stop_lending_to_person(request, lend_id):
